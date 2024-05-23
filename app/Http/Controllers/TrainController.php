@@ -18,10 +18,10 @@ class TrainController extends Controller
         $trains = Train::where('departure_time', '=', 'now()')->get();
         return view('today', compact('trains'));
     }
-    public function romeToNaples()
+    public function chooseDepartureArrival($departureStation, $arrivalStation)
     {
-        $trains = Train::where('departure_station', 'roma')
-            ->where('arrival_station', 'napoli')->get();
+        $trains = Train::where('departure_station', $departureStation)
+            ->where('arrival_station', $arrivalStation)->get();
         return view('romeToNaples', compact('trains'));
     }
        
